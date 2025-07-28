@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="application.cpp">
+    <ClCompile Include="SinglyLL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
