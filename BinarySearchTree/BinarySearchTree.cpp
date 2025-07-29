@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 class Node 
 {
 public:
@@ -162,6 +163,28 @@ public:
         {
             PrintGivenLevel(node->left, level - 1);
             PrintGivenLevel(node->right, level - 1);
+        }
+    }
+    void BFSUsingQueue(Node*root)
+    {
+        //this will take O(n)
+        if (!root)
+            return;
+        std::queue<Node*>queue;
+        queue.push(root);
+        while (!queue.empty())
+        {
+            Node* currentNode = queue.front();
+            queue.pop();
+            std::cout << currentNode->value << "  ";
+            if (currentNode->left)
+            {
+                queue.push(currentNode->left);
+            }
+            if (currentNode->right)
+            {
+                queue.push(currentNode->right);
+            }
         }
     }
 };
