@@ -84,6 +84,30 @@ public:
         DFSPostOrderPrint(node->right);
         std::cout << node->value << "  ";
     }
+    Node* IterativeSearch(int value)
+    {
+        if (root == nullptr)
+        {
+            return root;
+        }
+        Node* temp = root;
+        while (temp!=nullptr)
+        {
+            if (temp->value==value)
+            {
+                return temp;
+            }
+            else if (temp->value > value)
+            {
+                temp = temp->left;
+            }
+            else //else if (temp->value < value)
+            {
+                temp = temp->right;
+            }
+        }
+        return nullptr;
+    }
 
 };
 int main()
@@ -100,5 +124,8 @@ int main()
     tree.DFSInOrderPrint(tree.root);
     std::cout << std::endl << "--------------------------------------------------------"<<std::endl;
     tree.DFSPostOrderPrint(tree.root);
+    std::cout << std::endl << "--------------------------------------------------------"<<std::endl;
+    Node*node=tree.IterativeSearch(25);
+    std::cout << node->value;
     std::cin.get();
 }
