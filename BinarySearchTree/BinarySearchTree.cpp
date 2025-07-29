@@ -85,7 +85,8 @@ public:
         DFSPostOrderPrint(node->right);
         std::cout << node->value << "  ";
     }
-    Node*IterativeSearch(int value)
+
+    Node* IterativeSearch(int value)
     {
         if (root == nullptr)
         {
@@ -109,7 +110,7 @@ public:
         }
         return nullptr;
     }
-    Node*RecursiveSearch(Node*node,int value)
+    Node* RecursiveSearch(Node*node,int value)
     {
 
         if (node==nullptr||node->value==value)
@@ -125,7 +126,7 @@ public:
            return  RecursiveSearch(node->right,value);
         }
     }
-    int HeightUsingRecursion(Node* node)
+    int   HeightUsingRecursion(Node* node)
     {
         if (node==nullptr)
         {
@@ -139,7 +140,7 @@ public:
             return std::max(lHeight, rHeight) + 1;
         }
     }
-    void BFSPrint(Node* node)
+    void  BFSPrint(Node* node)
     {
         //this takes O(node*height)
         //which is not efficient way 
@@ -149,7 +150,7 @@ public:
             PrintGivenLevel(node, i);
         }
     }
-    void PrintGivenLevel(Node* node, int level)
+    void  PrintGivenLevel(Node* node, int level)
     {
         if (node==nullptr)
         {
@@ -165,7 +166,7 @@ public:
             PrintGivenLevel(node->right, level - 1);
         }
     }
-    void BFSUsingQueue(Node*root)
+    void  BFSUsingQueue(Node*root)
     {
         //this will take O(n)
         if (!root)
@@ -186,6 +187,51 @@ public:
                 queue.push(currentNode->right);
             }
         }
+    }
+    Node* minNode(Node* node)
+    {
+        Node* currentNode = node;
+        while (currentNode->left != nullptr)
+        {
+            currentNode = currentNode->left;
+        }return currentNode;
+    }
+    Node* deleteNode(Node* node, int value)
+    {
+        if (node==nullptr)
+        {
+            return nullptr;
+        }
+        else if (value<node->value)
+        {
+            node->left = deleteNode(node->left, value);
+        }
+        else if (value > node->value)
+        {
+            node->right = deleteNode(node->right, value);
+        }
+        else
+        {
+            if (node->left==nullptr)
+            {
+                Node* temp = node->right;
+                delete node;
+                return temp;
+            }
+            else if (node->right == nullptr)
+            {
+                Node* temp = node->left;
+                delete node;
+                return temp;
+            }
+            else
+            {
+                Node* temp = minNode(node->right);
+                node->value = temp->value;
+                node->right = deleteNode(node->right, temp->value);
+            }
+        }
+        return node;
     }
 };
 int main()
