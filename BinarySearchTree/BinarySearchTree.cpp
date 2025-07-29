@@ -84,7 +84,7 @@ public:
         DFSPostOrderPrint(node->right);
         std::cout << node->value << "  ";
     }
-    Node* IterativeSearch(int value)
+    Node*IterativeSearch(int value)
     {
         if (root == nullptr)
         {
@@ -108,7 +108,7 @@ public:
         }
         return nullptr;
     }
-    Node* RecursiveSearch(Node*node,int value)
+    Node*RecursiveSearch(Node*node,int value)
     {
 
         if (node==nullptr||node->value==value)
@@ -138,6 +138,32 @@ public:
             return std::max(lHeight, rHeight) + 1;
         }
     }
+    void BFSPrint(Node* node)
+    {
+        //this takes O(node*height)
+        //which is not efficient way 
+        int height = HeightUsingRecursion(node);
+        for (int i{};i <= height;i++)
+        {
+            PrintGivenLevel(node, i);
+        }
+    }
+    void PrintGivenLevel(Node* node, int level)
+    {
+        if (node==nullptr)
+        {
+            return;
+        }
+        else if(level==0)
+        {
+            std::cout << node->value << "  ";
+        }
+        else
+        {
+            PrintGivenLevel(node->left, level - 1);
+            PrintGivenLevel(node->right, level - 1);
+        }
+    }
 };
 int main()
 {
@@ -159,5 +185,7 @@ int main()
     std::cout << std::endl << "--------------------------------------------------------" << std::endl;
     node = tree.RecursiveSearch(tree.root,65);
     std::cout << node->value;
+    std::cout << std::endl << "--------------------------------------------------------" << std::endl;
+    std::cout << tree.HeightUsingRecursion(tree.root);
     std::cin.get();
 }
