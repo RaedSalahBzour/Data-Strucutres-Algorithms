@@ -108,6 +108,22 @@ public:
         }
         return nullptr;
     }
+    Node* RecursiveSearch(Node*node,int value)
+    {
+
+        if (node==nullptr||node->value==value)
+        {
+            return node;
+        }
+        else if (node->value > value)
+        {
+           return RecursiveSearch(node->left,value);
+        }
+        else
+        {
+           return  RecursiveSearch(node->right,value);
+        }
+    }
 
 };
 int main()
@@ -126,6 +142,9 @@ int main()
     tree.DFSPostOrderPrint(tree.root);
     std::cout << std::endl << "--------------------------------------------------------"<<std::endl;
     Node*node=tree.IterativeSearch(25);
+    std::cout << node->value;
+    std::cout << std::endl << "--------------------------------------------------------" << std::endl;
+    node = tree.RecursiveSearch(tree.root,65);
     std::cout << node->value;
     std::cin.get();
 }
