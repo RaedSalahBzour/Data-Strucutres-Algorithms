@@ -210,5 +210,9 @@ int main()
     std::cout << node->value;
     std::cout << std::endl << "--------------------------------------------------------" << std::endl;
     std::cout << tree.HeightUsingRecursion(tree.root);
+    std::cout << std::endl << "--------------------------------------------------------" << std::endl;
+    tree.BFSPrint(tree.root);
+    std::cout << std::endl << "--------------------------------------------------------" << std::endl;
+    tree.BFSUsingQueue(tree.root);
     std::cin.get();
 }
