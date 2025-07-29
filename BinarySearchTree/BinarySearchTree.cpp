@@ -124,7 +124,20 @@ public:
            return  RecursiveSearch(node->right,value);
         }
     }
+    int HeightUsingRecursion(Node* node)
+    {
+        if (node==nullptr)
+        {
+            return -1;
+        }
+        else
+        {
+            int lHeight = HeightUsingRecursion(node->left);
+            int rHeight = HeightUsingRecursion(node->right);
 
+            return std::max(lHeight, rHeight) + 1;
+        }
+    }
 };
 int main()
 {
