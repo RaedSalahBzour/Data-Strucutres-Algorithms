@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "singlyLL", "application\application.vcxproj", "{DDDC9A6A-033E-4495-97D5-2C86E23E8C02}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "doublyLinkedlist", "doublyLinkedlist\doublyLinkedlist.vcxproj", "{604A3DDD-131A-4423-9639-D91C09F0DFC0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CircularLL", "CircularLL\CircularLL.vcxproj", "{032E29EE-F0D7-424B-993C-6C1DFFB3FF71}"
@@ -21,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CircularQueueLL", "Circular
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HashTableLL", "HashTableLL\HashTableLL.vcxproj", "{39082856-1C61-4EC5-87F7-151E1ED8F8C2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SinglyLL", "SinglyLL\SinglyLL.vcxproj", "{BEA7B166-2AD6-4C27-ADAB-B8B2224BB8CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -29,14 +29,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DDDC9A6A-033E-4495-97D5-2C86E23E8C02}.Debug|x64.ActiveCfg = Debug|x64
-		{DDDC9A6A-033E-4495-97D5-2C86E23E8C02}.Debug|x64.Build.0 = Debug|x64
-		{DDDC9A6A-033E-4495-97D5-2C86E23E8C02}.Debug|x86.ActiveCfg = Debug|Win32
-		{DDDC9A6A-033E-4495-97D5-2C86E23E8C02}.Debug|x86.Build.0 = Debug|Win32
-		{DDDC9A6A-033E-4495-97D5-2C86E23E8C02}.Release|x64.ActiveCfg = Release|x64
-		{DDDC9A6A-033E-4495-97D5-2C86E23E8C02}.Release|x64.Build.0 = Release|x64
-		{DDDC9A6A-033E-4495-97D5-2C86E23E8C02}.Release|x86.ActiveCfg = Release|Win32
-		{DDDC9A6A-033E-4495-97D5-2C86E23E8C02}.Release|x86.Build.0 = Release|Win32
 		{604A3DDD-131A-4423-9639-D91C09F0DFC0}.Debug|x64.ActiveCfg = Debug|x64
 		{604A3DDD-131A-4423-9639-D91C09F0DFC0}.Debug|x64.Build.0 = Debug|x64
 		{604A3DDD-131A-4423-9639-D91C09F0DFC0}.Debug|x86.ActiveCfg = Debug|Win32
@@ -101,6 +93,14 @@ Global
 		{39082856-1C61-4EC5-87F7-151E1ED8F8C2}.Release|x64.Build.0 = Release|x64
 		{39082856-1C61-4EC5-87F7-151E1ED8F8C2}.Release|x86.ActiveCfg = Release|Win32
 		{39082856-1C61-4EC5-87F7-151E1ED8F8C2}.Release|x86.Build.0 = Release|Win32
+		{BEA7B166-2AD6-4C27-ADAB-B8B2224BB8CC}.Debug|x64.ActiveCfg = Debug|x64
+		{BEA7B166-2AD6-4C27-ADAB-B8B2224BB8CC}.Debug|x64.Build.0 = Debug|x64
+		{BEA7B166-2AD6-4C27-ADAB-B8B2224BB8CC}.Debug|x86.ActiveCfg = Debug|Win32
+		{BEA7B166-2AD6-4C27-ADAB-B8B2224BB8CC}.Debug|x86.Build.0 = Debug|Win32
+		{BEA7B166-2AD6-4C27-ADAB-B8B2224BB8CC}.Release|x64.ActiveCfg = Release|x64
+		{BEA7B166-2AD6-4C27-ADAB-B8B2224BB8CC}.Release|x64.Build.0 = Release|x64
+		{BEA7B166-2AD6-4C27-ADAB-B8B2224BB8CC}.Release|x86.ActiveCfg = Release|Win32
+		{BEA7B166-2AD6-4C27-ADAB-B8B2224BB8CC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
