@@ -85,7 +85,6 @@ public:
         DFSPostOrderPrint(node->right);
         std::cout << node->value << "  ";
     }
-
     Node* IterativeSearch(int value)
     {
         if (root == nullptr)
@@ -240,6 +239,7 @@ int main()
     tree.insertNode(30);
     tree.insertNode(18);
     tree.insertNode(45);
+    tree.insertNode(42);
     tree.insertNode(10);
     tree.insertNode(25);
     tree.insertNode(65);
@@ -259,6 +259,9 @@ int main()
     std::cout << std::endl << "--------------------------------------------------------" << std::endl;
     tree.BFSPrint(tree.root);
     std::cout << std::endl << "--------------------------------------------------------" << std::endl;
+    tree.BFSUsingQueue(tree.root);
+    std::cout << std::endl << "--------------------------------------------------------" << std::endl;
+    tree.deleteNode(tree.root, 45);
     tree.BFSUsingQueue(tree.root);
     std::cin.get();
 }
