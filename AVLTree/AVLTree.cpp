@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 class Node
 {
 public:
@@ -81,8 +82,59 @@ public:
         }
         return balance(node);
     }
+    //beacue the root is changed
     void Insert(int value) {
         root = InsertNodeRecursively(root, value);
+    }
+    Node* minNode(Node* node)
+    {
+        Node* currentNode = node;
+        while (currentNode->left != nullptr)
+        {
+            currentNode = currentNode->left;
+        }return currentNode;
+    }
+    Node* deleteNode(Node* node, int value)
+    {
+        if (node == nullptr)
+        {
+            return nullptr;
+        }
+        else if (value < node->value)
+        {
+            node->left = deleteNode(node->left, value);
+        }
+        else if (value > node->value)
+        {
+            node->right = deleteNode(node->right, value);
+        }
+        else
+        {
+            if (node->left == nullptr)
+            {
+                Node* temp = node->right;
+                delete node;
+                return temp;
+            }
+            else if (node->right == nullptr)
+            {
+                Node* temp = node->left;
+                delete node;
+                return temp;
+            }
+            else
+            {
+                Node* temp = minNode(node->right);
+                node->value = temp->value;
+                node->right = deleteNode(node->right, temp->value);
+            }
+        }
+        updateHeight(node);
+        return balance(node);
+    }
+    //beacue the root is changed
+    void Delete(int value) {
+        root = deleteNode(root, value);
     }
     void DFSPreOrderPrint(Node* node)
     {
@@ -114,6 +166,29 @@ public:
         DFSPostOrderPrint(node->right);
         std::cout << node->value << "  ";
     }
+    void  BFSUsingQueue(Node* root)
+    {
+        //this will take O(n)
+        if (!root)
+            return;
+        std::queue<Node*>queue;
+        queue.push(root);
+        while (!queue.empty())
+        {
+            Node* currentNode = queue.front();
+            queue.pop();
+            std::cout << currentNode->value << "  ";
+            if (currentNode->left)
+            {
+                queue.push(currentNode->left);
+            }
+            if (currentNode->right)
+            {
+                queue.push(currentNode->right);
+            }
+        }
+    }
+
 };
 int main()
 {
@@ -124,6 +199,12 @@ int main()
     tree.Insert(25);
     tree.Insert(35);
     tree.Insert(50);
-    tree.DFSPreOrderPrint(tree.root);
+    tree.BFSUsingQueue(tree.root);
+    std::cout << std::endl << "--------------------------------" << std::endl;
+    tree.Delete(20);
+    tree.Delete(10);
+    tree.Insert(60);
+    tree.Insert(68);
+    tree.BFSUsingQueue(tree.root);
     std::cin.get();
 }
