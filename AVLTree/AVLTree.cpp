@@ -21,6 +21,13 @@ public:
     int getHeight(Node* node) {
         return node == nullptr ? 0 : node->height;
     }
+    void updateHeight(Node* node) {
+        if (node)
+            node->height = 1 + std::max(getHeight(node->left), getHeight(node->right));
+    }
+    int getBalanceFactor(Node* node) {
+        return node == nullptr ? 0 : getHeight(node->left) - getHeight(node->right);
+    }
     
 };
 int main()
