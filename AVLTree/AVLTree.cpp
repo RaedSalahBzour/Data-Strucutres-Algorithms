@@ -14,7 +14,14 @@ class AVLTree
     Node* root;
 public:
     AVLTree():root(nullptr){}
-   
+    bool isEmpty()
+    {
+        return root == nullptr;
+    }
+    int getHeight(Node* node) {
+        return node == nullptr ? 0 : node->height;
+    }
+    
 };
 int main()
 {
