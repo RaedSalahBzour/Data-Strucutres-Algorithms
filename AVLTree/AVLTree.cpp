@@ -19,7 +19,7 @@ public:
         return root == nullptr;
     }
     int getHeight(Node* node) {
-        return node == nullptr ? 0 : node->height;
+        return node ? node->height : 0;
     }
     void updateHeight(Node* node) {
         if (node)
@@ -49,7 +49,38 @@ public:
         updateHeight(newRoot);
         return newRoot;
     }
-    
+    Node* balance(Node* node) {
+        updateHeight(node);
+        int balanceFactor = getBalanceFactor(node);
+
+        // Left heavy
+        if (balanceFactor > 1) {
+            if (getBalanceFactor(node->left) < 0)
+                node->left = LeftRotate(node->left); // Left-Right Case
+            return RightRotate(node);               // Left-Left Case
+        }
+        // Right heavy
+        else if (balanceFactor < -1) {
+            if (getBalanceFactor(node->right) > 0)
+                node->right = RightRotate(node->right); // Right-Left Case
+            return LeftRotate(node);                    // Right-Right Case
+        }
+        return node;
+    }
+    Node* InsertNodeRecursively(Node* node,int value)
+    {
+        if (!node)
+            return new Node(value);
+        if (value < node->value)
+            node->left = InsertNodeRecursively(node->left, value);
+        else if (value > node->value)
+            node->right = InsertNodeRecursively(node->right, value);
+        else
+        {
+            return node;
+        }
+        return balance(node);
+    }
 };
 int main()
 {
