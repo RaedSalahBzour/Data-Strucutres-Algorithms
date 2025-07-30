@@ -18,7 +18,7 @@ public:
     {
         return root == nullptr;
     }
-    void insertNode(int value)
+    void insertNodeIteratively(int value)
     {
         Node* node = new Node(value);
         if (root==nullptr)
@@ -54,6 +54,29 @@ public:
                 temp = temp->right;
             }
         }
+    }
+    Node* insertNodeRecursively(Node* node, int value)
+    {
+        Node* newNode = new Node(value);
+        if (node == nullptr)
+        {
+            node = newNode;
+            return node;
+        }
+        else if (node->value > value)
+        {
+            node->left = InsertNode(node->left, value);
+        }
+        else if (node->value < value)
+        {
+            node->right = InsertNode(node->right, value);
+        }
+        else
+        {
+            std::cout << "node already exist";
+        }
+        return node;
+
     }
     void DFSPreOrderPrint(Node* node)
     {
@@ -232,6 +255,7 @@ public:
         }
         return node;
     }
+
 };
 int main()
 {
