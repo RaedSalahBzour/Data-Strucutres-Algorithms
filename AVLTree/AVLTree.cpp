@@ -11,8 +11,8 @@ public:
 };
 class AVLTree
 {
-    Node* root;
 public:
+    Node* root;
     AVLTree():root(nullptr){}
     bool isEmpty()
     {
@@ -81,9 +81,49 @@ public:
         }
         return balance(node);
     }
+    void Insert(int value) {
+        root = InsertNodeRecursively(root, value);
+    }
+    void DFSPreOrderPrint(Node* node)
+    {
+        if (node == nullptr)
+        {
+            return;
+        }
+        std::cout << node->value << "  ";
+        DFSPreOrderPrint(node->left);
+        DFSPreOrderPrint(node->right);
+    }
+    void DFSInOrderPrint(Node* node)
+    {
+        if (node == nullptr)
+        {
+            return;
+        }
+        DFSInOrderPrint(node->left);
+        std::cout << node->value << "  ";
+        DFSInOrderPrint(node->right);
+    }
+    void DFSPostOrderPrint(Node* node)
+    {
+        if (node == nullptr)
+        {
+            return;
+        }
+        DFSPostOrderPrint(node->left);
+        DFSPostOrderPrint(node->right);
+        std::cout << node->value << "  ";
+    }
 };
 int main()
 {
-
+    AVLTree tree;
+    tree.Insert(30);
+    tree.Insert(20);
+    tree.Insert(10);
+    tree.Insert(25);
+    tree.Insert(35);
+    tree.Insert(50);
+    tree.DFSPreOrderPrint(tree.root);
     std::cin.get();
 }
