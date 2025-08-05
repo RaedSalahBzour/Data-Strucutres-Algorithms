@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <stack>
 class Node 
 {
 public:
@@ -65,11 +66,11 @@ public:
         }
         else if (node->value > value)
         {
-            node->left = InsertNode(node->left, value);
+            node->left = insertNodeRecursively(node->left, value);
         }
         else if (node->value < value)
         {
-            node->right = InsertNode(node->right, value);
+            node->right = insertNodeRecursively(node->right, value);
         }
         else
         {
@@ -255,18 +256,19 @@ public:
         }
         return node;
     }
+  
 
 };
 int main()
 {
     BST tree;
-    tree.insertNode(30);
-    tree.insertNode(18);
-    tree.insertNode(45);
-    tree.insertNode(42);
-    tree.insertNode(10);
-    tree.insertNode(25);
-    tree.insertNode(65);
+    tree.insertNodeIteratively(30);
+    tree.insertNodeIteratively(18);
+    tree.insertNodeIteratively(45);
+    tree.insertNodeIteratively(42);
+    tree.insertNodeIteratively(10);
+    tree.insertNodeIteratively(25);
+    tree.insertNodeIteratively(65);
     tree.DFSPreOrderPrint(tree.root);
     std::cout << std::endl << "--------------------------------------------------------"<<std::endl;
     tree.DFSInOrderPrint(tree.root);
