@@ -188,7 +188,7 @@ public:
         //here the newHead is the last node 
         //and the head is the pre last node
         Node* newHead = reverseLinkedlistRecursively(head->next);
-        //making the next of the last points to the pre last
+        //making the next of the last node points to the pre last
         head->next->next = head;
         //destroy the link from pre last to last node
         head->next = nullptr;

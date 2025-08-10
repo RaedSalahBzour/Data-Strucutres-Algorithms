@@ -31,7 +31,7 @@ public:
         }
         Node* temp = top;
         top = top->next;
-        delete top;
+        delete temp;
     }
     int peek()
     {
